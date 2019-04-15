@@ -109,7 +109,7 @@ npm run docs
 Extra debugging information is printed using the `debug` module:
 
 ```bash
-DEBUG=binary-encoder:* npm t
+DEBUG=meta-trie:* npm t
 ```
 
 The documentation will be put in the new `docs` directory.
