@@ -1,0 +1,8 @@
+node_modules/
+.vscode/
+coverage/
+*.csv
+!tests/**/*.dat
+*.dat
+*.dat.tmp
+*.log
