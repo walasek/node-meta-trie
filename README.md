@@ -96,7 +96,7 @@ Finished Wide tree, random read, 1000000 entries result: 729,707 ops/sec ±1.45%
 Finished Deep tree, random read, 1000000 entries result: 2,339,466 ops/sec ±4.55% (2879711 samples) 0ms ±4.55% (2879711 samples)
 ```
 
-It is crucial for high performance computing to properly pick a keying strategy for your use case. Keep in mind this library only helps with keys, it won't help you store 10 gigs of values (but willwork just fine as an index).
+It is crucial for high performance computing to properly pick a keying strategy for your use case. Keep in mind this library only helps with keys, it won't help you store 10 gigs of values (but will work just fine as an index).
 
 ## Contributing
 
