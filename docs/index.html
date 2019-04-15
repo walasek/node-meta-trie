@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    
+    <meta charset="utf-8">
+    <title>Home - Documentation</title>
+    
+    
+    <script src="scripts/prettify/prettify.js"></script>
+    <script src="scripts/prettify/lang-css.js"></script>
+    <!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <link type="text/css" rel="stylesheet" href="styles/prettify.css">
+    <link type="text/css" rel="stylesheet" href="styles/jsdoc.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<body>
+
+<input type="checkbox" id="nav-trigger" class="nav-trigger" />
+<label for="nav-trigger" class="navicon-button x">
+  <div class="navicon"></div>
+</label>
+
+<label for="nav-trigger" class="overlay"></label>
+
+<nav >
+    
+    <h2><a href="index.html">Home</a></h2><h3>Classes</h3><ul><li><a href="TrieNode.html">TrieNode</a><ul class='methods'><li data-type='method'><a href="TrieNode.html#get">get</a></li><li data-type='method'><a href="TrieNode.html#getNodeForKey">getNodeForKey</a></li><li data-type='method'><a href="TrieNode.html#put">put</a></li></ul></li></ul>
+</nav>
+
+<div id="main">
+    
+
+    
+
+
+
+    
+
+
+    <section class="package">
+        <h3> </h3>		
+    </section>
+
+
+
+
+
+
+
+
+
+    
+
+
+
+    <section class="readme">
+        <article><h1><a href="https://github.com/walasek/node-meta-trie">node-meta-trie</a> <a href="https://travis-ci.org/walasek/node-meta-trie"><img src="https://img.shields.io/travis/walasek/node-meta-trie.svg?style=flat-square" alt="Build Status"></a> <a href="https://www.npmjs.com/walasek/node-meta-trie"><img src="https://img.shields.io/npm/v/meta-trie.svg?style=flat-square" alt="Package Version"></a> <img src="https://img.shields.io/npm/l/meta-trie.svg?style=flat-square" alt="License"> <a href="https://david-dm.org/walasek/node-meta-trie.svg"><img src="https://david-dm.org/walasek/node-meta-trie.svg" alt="Dependencies"></a>  <a href="https://codecov.io/gh/walasek/node-meta-trie"><img src="https://codecov.io/gh/walasek/node-meta-trie/branch/master/graph/badge.svg" alt="codecov"></a></h1><p>A Trie structure for big dictionaries.</p>
+<hr>
+<h2>Goal</h2><p>Need to store a million keys in a dictionary? Running out of memory doing just that? Use a tree! Oh, and attach any metadata!</p>
+<h2>Installation</h2><p>Node <code>&gt;=8.9.0</code> is required.</p>
+<pre class="prettyprint source lang-bash"><code>npm install --save meta-trie</code></pre><p>To perform tests use:</p>
+<pre class="prettyprint source lang-bash"><code>cd node_modules/meta-trie
+npm i
+npm t</code></pre><p>This project also has a benchmark that you can run yourself:</p>
+<pre class="prettyprint source lang-bash"><code>cd node_modules/meta-trie
+npm i
+npm run benchmark</code></pre><h2>Usage</h2><p>Documentation is available <a href="https://walasek.github.io/node-meta-trie/">here</a>.</p>
+<pre class="prettyprint source lang-javascript"><code>const TrieNode = require('meta-trie');
+
+const my_tree = new TrieNode();
+// Store anything, the key should be a string (can be a number, but that's hacky)
+my_tree.put('some key', 'some value');
+
+// Can retrieve it too
+if(my_tree.get('some key') != 'some value')
+    throw `This won't ever happen, no worries`;
+
+// Can iterate over the whole tree
+for([key, value] of my_tree)
+    console.log(`${key} => ${value}`);</code></pre><p>For simplicity there is also a simple Proxy that supports a dictionary-like interface. Beware that this has a performance hit.</p>
+<pre class="prettyprint source lang-javascript"><code>const trieDict = require('meta-trie/dict');
+
+const my_tree = trieDict();
+// Store stuff like in a dictionary
+my_tree['some key'] = 'some value';
+
+// Grab it too
+if(my_tree['some key'] != 'some value')
+    throw `Not a chance`;
+
+// JSONize it, note there's no way to parse it back into a tree
+console.log(JSON.stringify(my_tree));
+// {&quot;some key&quot;: &quot;some value&quot;}
+
+// Iteration of the dict Proxy currently not implemented.</code></pre><h1>Benchmarks</h1><p>The following benchmark compares two different keying strategies - Wide tree tests a lot of short keys (each tree node has many children), while Deep tree tests longer keys with more randomness in them (also requires more memory/can store less data). Beware that key generation for Deep tree takes a lot more time.</p>
+<pre class="prettyprint source"><code>Finished Wide tree, random read, 10 entries result: 10,528,851 ops/sec ±10.98% (4518512 samples) 0ms ±10.98% (4518512 samples)
+Finished Deep tree, random read, 10 entries result: 4,279,341 ops/sec ±3.5% (3791636 samples) 0ms ±3.5% (3791636 samples)
+
+Finished Wide tree, random read, 100 entries result: 7,041,257 ops/sec ±5.52% (4127222 samples) 0ms ±5.52% (4127222 samples)
+Finished Deep tree, random read, 100 entries result: 3,582,229 ops/sec ±4.62% (3532846 samples) 0ms ±4.62% (3532846 samples)
+
+Finished Wide tree, random read, 1000 entries result: 4,631,008 ops/sec ±4.04% (3639972 samples) 0ms ±4.04% (3639972 samples)
+Finished Deep tree, random read, 1000 entries result: 3,276,533 ops/sec ±3.44% (3520151 samples) 0ms ±3.44% (3520151 samples)
+
+Finished Wide tree, random read, 10000 entries result: 2,426,648 ops/sec ±2.6% (2888383 samples) 0ms ±2.6% (2888383 samples)
+Finished Deep tree, random read, 10000 entries result: 3,061,468 ops/sec ±3.25% (3417499 samples) 0ms ±3.25% (3417499 samples)
+
+Finished Wide tree, random read, 100000 entries result: 1,012,190 ops/sec ±1.79% (1753290 samples) 0ms ±1.79% (1753290 samples)
+Finished Deep tree, random read, 100000 entries result: 2,635,031 ops/sec ±3.7% (3185012 samples) 0ms ±3.7% (3185012 samples)
+
+Finished Wide tree, random read, 1000000 entries result: 729,707 ops/sec ±1.45% (1449511 samples) 0ms ±1.45% (1449511 samples)
+Finished Deep tree, random read, 1000000 entries result: 2,339,466 ops/sec ±4.55% (2879711 samples) 0ms ±4.55% (2879711 samples)</code></pre><p>It is crucial for high performance computing to properly pick a keying strategy for your use case. Keep in mind this library only helps with keys, it won't help you store 10 gigs of values (but willwork just fine as an index).</p>
+<h2>Contributing</h2><p>The source is documented with JSDoc. To generate the documentation use:</p>
+<pre class="prettyprint source lang-bash"><code>npm run docs</code></pre><p>Extra debugging information is printed using the <code>debug</code> module:</p>
+<pre class="prettyprint source lang-bash"><code>DEBUG=binary-encoder:* npm t</code></pre><p>The documentation will be put in the new <code>docs</code> directory.</p>
+<p>To introduce an improvement please fork this project, commit changes in a new branch to your fork and add a pull request on this repository pointing at your fork. Please follow these style recommendations when working on the code:</p>
+<ul>
+<li>Use tabs (yup).</li>
+<li>Use <code>async</code>/<code>await</code> and/or <code>Promise</code> where possible.</li>
+<li>Features must be properly tested.</li>
+<li>New methods must be properly documented with <code>jscode</code> style comments.</li>
+</ul></article>
+    </section>
+
+
+
+
+
+
+    
+    
+</div>
+
+<br class="clear">
+
+<footer>
+    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.5.5</a> on Mon Apr 15 2019 20:47:21 GMT+0200 (Central European Daylight Time) using the <a href="https://github.com/clenemt/docdash">docdash</a> theme.
+</footer>
+
+<script>prettyPrint();</script>
+<script src="scripts/polyfill.js"></script>
+<script src="scripts/linenumber.js"></script>
+
+
+
+</body>
+</html>

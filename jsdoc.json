@@ -4,7 +4,7 @@
     },
     "recurseDepth": 10,
     "source": {
-        "include": ["README.md", "index.js", "DataIndex.js", "FSInterface.js", "ReadableInterface.js", "Store.js", "StreamStructureDecoder.js", "Structures.js"],
+        "include": ["README.md", "Trie.js"],
         "includePattern": ".js(doc)?$",
 		"excludePattern": "(node_modules/|docs)",
 		"recurse": true
