@@ -2,6 +2,9 @@
   "name": "node-meta-trie",
   "version": "1.0.0",
   "description": "A key-value store utilising the filesystem.",
+  "engines": {
+    "node": ">=8.9.0"
+  },
   "main": "test.js",
   "scripts": {
     "coverage": "istanbul cover test.js",
@@ -9,9 +12,21 @@
     "docs": "node node_modules/jsdoc/jsdoc.js -c jsdoc.json",
     "benchmark": "node benchmark.js"
   },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/walasek/node-binary-encoder.git"
+  },
+  "keywords": [
+    "nodejs",
+    "tree",
+    "trie"
+  ],
+  "author": "Karol Walasek <coreconviction@gmail.com>",
+  "bugs": {
+    "url": "https://github.com/walasek/node-binary-encoder/issues"
+  },
+  "homepage": "https://github.com/walasek/node-binary-encoder#readme",
+  "license": "MIT",
   "devDependencies": {
     "docdash": "^1.1.0",
     "faucet": "0.0.1",
