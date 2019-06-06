@@ -6,3 +6,4 @@ coverage/
 *.dat
 *.dat.tmp
 *.log
+.nyc_output
