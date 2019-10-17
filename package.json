@@ -14,7 +14,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/walasek/node-binary-encoder.git"
+    "url": "git+https://github.com/walasek/node-meta-trie.git"
   },
   "keywords": [
     "nodejs",
@@ -23,9 +23,9 @@
   ],
   "author": "Karol Walasek <coreconviction@gmail.com>",
   "bugs": {
-    "url": "https://github.com/walasek/node-binary-encoder/issues"
+    "url": "https://github.com/walasek/node-meta-trie/issues"
   },
-  "homepage": "https://github.com/walasek/node-binary-encoder#readme",
+  "homepage": "https://github.com/walasek/node-meta-trie#readme",
   "license": "MIT",
   "devDependencies": {
     "docdash": "^1.1.1",
