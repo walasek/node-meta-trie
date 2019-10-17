@@ -31,10 +31,10 @@
     "docdash": "^1.1.1",
     "faucet": "0.0.1",
     "glob": "^7.1.4",
-    "jsdoc": "^3.6.2",
+    "jsdoc": "^3.6.3",
     "nodemark": "^0.3.0",
     "nyc": "^14.1.1",
-    "zora": "^2.0.1"
+    "zora": "^3.1.1"
   },
   "dependencies": {
     "debug": "^4.1.1"
