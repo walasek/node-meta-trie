@@ -30,7 +30,7 @@
   "devDependencies": {
     "docdash": "^1.1.1",
     "faucet": "0.0.1",
-    "glob": "^7.1.4",
+    "glob": "^7.1.5",
     "jsdoc": "^3.6.3",
     "nodemark": "^0.3.0",
     "nyc": "^14.1.1",
