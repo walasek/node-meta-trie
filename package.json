@@ -28,15 +28,15 @@
   "homepage": "https://github.com/walasek/node-meta-trie#readme",
   "license": "MIT",
   "devDependencies": {
-    "docdash": "^1.2.0",
-    "faucet": "0.0.1",
-    "glob": "^7.1.6",
-    "jsdoc": "^3.6.6",
-    "nodemark": "^0.3.0",
-    "nyc": "^15.1.0",
-    "zora": "^4.0.1"
+    "docdash": "^1",
+    "faucet": "0.0.3",
+    "glob": "^8",
+    "jsdoc": "^3",
+    "nodemark": "^0.3",
+    "nyc": "^15",
+    "zora": "^4"
   },
   "dependencies": {
-    "debug": "^4.2.0"
+    "debug": "^4"
   }
 }
